@@ -1,6 +1,6 @@
 import { type Locator, Page } from '@playwright/test';
 
-export default class QametaIoMainPage { 
+export class QametaIoMainPage { 
     readonly page: Page;
     readonly featuresNavLink: Locator;
     readonly freeTrialButton: Locator;
