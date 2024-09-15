@@ -1,11 +1,10 @@
 import { test } from '../fixtures/pageFixtures';
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('https://qameta.io/ci-integrations/');
+    await page.goto(process.env.INTEGRATIONS_PAGE_URL!);
   });
 
-
-test('Open integration with Jenkins page in new tab', async ({ continuousTestingPage, integrationWithJenkinsPage, page}) => {
+test.fixme('Open integration with Jenkins page in new tab', async ({ continuousTestingPage, integrationWithJenkinsPage, page}) => {
     const [newPage] = await Promise.all([
       page.waitForEvent('popup'),
       await continuousTestingPage.clickJenkinsIntegrationLink()

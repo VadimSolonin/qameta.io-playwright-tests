@@ -2,7 +2,7 @@ import Helpers from '../utils/helpers';
 import { test } from '../fixtures/pageFixtures';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('https://qameta.io/');
+  await page.goto(process.env.MAIN_PAGE_URL!);
 });
 
 test('Open continuous testing page', async ({ page, qametaIoMainPage }) => {
