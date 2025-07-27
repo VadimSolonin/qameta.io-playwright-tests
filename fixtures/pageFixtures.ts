@@ -1,7 +1,6 @@
 import { QametaIoMainPage } from "../pages/QametaIoMainPage";
 import { CloudTrialRequestPage } from "../pages/CloudTrialRequestPage";
 import { SandboxTestopsPage } from "../pages/SandboxTestopsPage";
-import { ContinuousTestingPage } from "../pages/ContinuousTestingPage";
 import { IntegrationWithJenkinsPage } from "../pages/IntegrationWithJenkinsPage";
 import { test as base } from "@playwright/test";
 
@@ -28,11 +27,6 @@ cloudTrialRequestPage: async({ page }, use) => {
 sandboxTestopsPage: async({ page }, use) => {
     const sandboxTestopsPage = new SandboxTestopsPage(page);
     await use(sandboxTestopsPage);
-},
-
-continuousTestingPage: async({ page }, use) => {
-    const continuousTestingPage = new ContinuousTestingPage(page);
-    await use(continuousTestingPage);
 },
 
 integrationWithJenkinsPage: async({ page }, use) => {
