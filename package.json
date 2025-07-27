@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "ci": "cross-env ENV=dev npx playwright test --ui",
-    "test:dev": "cross-env ENV=dev npx playwright test",
+    "run-pw-ui-mode": "cross-env ENV=dev npx playwright test --ui",
+    "run-tests-headless": "cross-env ENV=dev npx playwright test",
+    "run-tests-docker": "docker-compose -f docker-compose.local.yml up --build",
     "test:prod": "cross-env ENV=prod npx playwright test"
   },
   "keywords": [],

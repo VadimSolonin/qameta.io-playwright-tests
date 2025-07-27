@@ -1,0 +1,11 @@
+services:
+  playwright-tests:
+    build:
+      context: .
+      dockerfile: ./dockerfile.local
+      args:
+        - ENV=dev
+    environment:
+      - MAIN_PAGE_URL=https://qameta.io
+    volumes:
+      - .:/app

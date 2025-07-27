@@ -1,0 +1,15 @@
+FROM mcr.microsoft.com/playwright:v1.46.0-jammy
+
+WORKDIR /app
+
+COPY package.json yarn.lock ./
+RUN corepack enable && corepack prepare yarn@4.5.3 --activate
+RUN yarn install
+
+COPY . .
+
+RUN npx playwright install --with-deps chromium
+
+ENV ENV=dev
+
+CMD ["yarn", "run-tests-headless"]

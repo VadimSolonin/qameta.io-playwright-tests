@@ -9,7 +9,6 @@ type Fixtures = {
     qametaIoMainPage : QametaIoMainPage;
     cloudTrialRequestPage : CloudTrialRequestPage;
     sandboxTestopsPage : SandboxTestopsPage;
-    continuousTestingPage : ContinuousTestingPage;
     integrationWithJenkinsPage : IntegrationWithJenkinsPage;
 }
 
