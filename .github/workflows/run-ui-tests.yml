@@ -22,8 +22,8 @@ jobs:
           corepack prepare yarn@4.5.3 --activate
           yarn install
 
-      - name: Run tests inside Docker
-        run: docker-compose -f docker-compose.local.yml up --build --abort-on-container-exit
+      - name: Run tests
+        run: docker compose -f docker-compose.local.yml up --build --abort-on-container-exit
 
       - name: Generate Allure report
         run: |
