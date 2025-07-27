@@ -9,3 +9,4 @@ services:
       - MAIN_PAGE_URL=https://qameta.io
     volumes:
       - .:/app
+      - ./allure-results:/app/allure-results

@@ -7,9 +7,8 @@ RUN corepack enable && corepack prepare yarn@4.5.3 --activate
 RUN yarn install
 
 COPY . .
-
+RUN mkdir -p /app/allure-results
 RUN npx playwright install --with-deps chromium
 
 ENV ENV=dev
-
 CMD ["yarn", "run-tests-headless"]
