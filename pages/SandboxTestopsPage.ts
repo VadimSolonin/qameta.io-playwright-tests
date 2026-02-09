@@ -1,15 +1,15 @@
-import { type Locator, Page, expect } from '@playwright/test';
+import { type Locator, type Page } from '@playwright/test';
+import { BasePage } from './BasePage';
 
-export class SandboxTestopsPage { 
-    readonly page: Page;
+export class SandboxTestopsPage extends BasePage { 
     readonly inputEmail : Locator;
 
     constructor(page: Page){
-        this.page = page;
+        super(page);
         this.inputEmail = page.locator('[data-testid="input__email"]');
     }
 
-    public async verifyEmailInputVisibility(){
-        await expect(this.inputEmail).toBeVisible();
+    public async assertEmailInputVisible(){
+        await this.assertVisible(this.inputEmail);
     }
 }

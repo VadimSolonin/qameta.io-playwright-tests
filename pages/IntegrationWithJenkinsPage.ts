@@ -1,13 +1,15 @@
-import { expect, type Locator, Page } from '@playwright/test';
+import { type Locator, type Page } from '@playwright/test';
+import { BasePage } from './BasePage';
 
-export class IntegrationWithJenkinsPage { 
-    readonly page: Page;
+export class IntegrationWithJenkinsPage extends BasePage { 
+    readonly jenkinsIntegrationTitle: Locator;
 
     constructor(page: Page){
-        this.page = page;
+        super(page);
+        this.jenkinsIntegrationTitle = page.locator('#integration-with-jenkins');
     }
 
-    public async verifyJenkinsIntegrationTextTitle (page: Page, text: string){
-        await expect(page.locator('#integration-with-jenkins')).toHaveText(text)
+    public async assertJenkinsIntegrationTextTitle(text: string){
+        await this.assertText(this.jenkinsIntegrationTitle, text);
     }
 }
