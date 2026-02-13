@@ -1,13 +1,49 @@
-## Scripts 
-Scripts for running automated tests:
-| Description | Command |
-| ------ | ------ |
-| Run tests locally in a headless mode | yarn run-tests-headless |
-| Run tests locally in a docker container | yarn run-tests-docker |
-| After passing the autotests open the allure report | yarn open-allure-report |
 
-## GitHub Actions Integration
+Automated tests based on **Playwright** for [qameta.io](https://qameta.io/).
+
+### Key features:
+- Page Object Model
+- Allure reports via `allure-playwright`
+- `@step` decorator that wraps Page Object methods into `test.step(...)` 
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies: `yarn`
+3. Install Playwright: `yarn playwright install`
+
+### Running tests
+
+| Command | Description |
+| ------ | ------ |
+| `yarn run-pw-ui-mode` | Run tests locally in UI mode |
+| `yarn run-tests-headless` | Run tests locally in a headless mode |
+| `yarn run-tests-docker` | Run tests locally in a docker container |
+
+
+
+### Allure reports
+
+After a test run, results are saved into `allure-results/`.
+
+| Command | Description |
+| ------ | ------ |
+| `yarn allure:generate` | Generate report |
+| `yarn allure:open` | Open report in browser |
+| `yarn run-tests-open-allure` | Run tests and open allure report |
+
+
+### Project structure
+
+- `tests/` — Playwright test suites
+- `fixtures/` — `test` extension with page fixtures
+- `pages/` — Page Object classes
+- `decorators/` — decorators (e.g. `@step(...)`)
+
+### GitHub Actions Integration
+
 A GitHub Actions workflow has been added to run autotests and generate a downloadable allure-report.html file in the workflow summary.
+
 How to use:
 1. Open the «Actions» tab in GitHub
 2. Open «Run Playwright tests in Docker» workflow»

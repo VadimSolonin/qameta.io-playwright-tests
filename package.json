@@ -12,7 +12,7 @@
     "allure:open": "allure open ./allure-report",
     "test:prod": "cross-env ENV=prod npx playwright test",
     "clean-allure-folder": "rimraf ./allure-results",
-    "open-allure-report": "yarn allure:generate && yarn allure:open"
+    "run-tests-open-allure": "yarn clean-allure-folder && yarn run-tests-headless && yarn allure:generate && yarn allure:open"
   },
   "keywords": [],
   "author": "",
