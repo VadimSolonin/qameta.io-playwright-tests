@@ -1,4 +1,4 @@
-import { type Locator, type Page } from '@playwright/test';
+import { test, type Locator, type Page } from '@playwright/test';
 import { BasePage } from './BasePage';
 
 export class CloudTrialRequestPage extends BasePage { 
@@ -10,6 +10,8 @@ export class CloudTrialRequestPage extends BasePage {
     }
 
     public async assertCloudTrialTextTitle(text: string){
-        await this.assertText(this.cloudTrialPageTitle, text);
+        await test.step(`Проверить заголовок страницы Cloud Trial: ${text}`, async () => {
+            await this.assertText(this.cloudTrialPageTitle, text);
+        });
     }
 }

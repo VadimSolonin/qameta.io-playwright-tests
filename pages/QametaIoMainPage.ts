@@ -1,4 +1,4 @@
-import { type Locator, type Page } from '@playwright/test';
+import { test, type Locator, type Page } from '@playwright/test';
 import { BasePage } from './BasePage';
 
 export class QametaIoMainPage extends BasePage { 
@@ -14,18 +14,26 @@ export class QametaIoMainPage extends BasePage {
     }
 
     async hoverFeaturesNavLink(){
-        await this.featuresNavLink.hover();
+        await test.step('Навести курсор на пункт меню Features', async () => {
+            await this.featuresNavLink.hover();
+        });
     }
 
     async clickFeaturesNavLink(text : string){
-        await this.page.locator('#features_nav_desctop :text(" ' + text + '")').click();
+        await test.step(`Кликнуть по пункту меню Features: ${text}`, async () => {
+            await this.page.locator('#features_nav_desctop :text(" ' + text + '")').click();
+        });
     }
     
     async clickFreeTrialButton(){
-        await this.freeTrialButton.click();
+        await test.step('Нажать кнопку Free Trial', async () => {
+            await this.freeTrialButton.click();
+        });
     }
     
     async clickSandboxButton(){
-        await this.sandboxButton.click();
+        await test.step('Нажать кнопку Sandbox', async () => {
+            await this.sandboxButton.click();
+        });
     }
 }

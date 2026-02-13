@@ -1,4 +1,4 @@
-import { type Locator, type Page } from '@playwright/test';
+import { test, type Locator, type Page } from '@playwright/test';
 import { BasePage } from './BasePage';
 
 export class IntegrationWithJenkinsPage extends BasePage { 
@@ -10,6 +10,8 @@ export class IntegrationWithJenkinsPage extends BasePage {
     }
 
     public async assertJenkinsIntegrationTextTitle(text: string){
-        await this.assertText(this.jenkinsIntegrationTitle, text);
+        await test.step(`Проверить заголовок страницы Integration with Jenkins: ${text}`, async () => {
+            await this.assertText(this.jenkinsIntegrationTitle, text);
+        });
     }
 }

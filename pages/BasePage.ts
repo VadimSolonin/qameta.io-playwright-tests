@@ -1,4 +1,4 @@
-import { expect, type Locator, type Page } from '@playwright/test';
+import { expect, test, type Locator, type Page } from '@playwright/test';
 
 export class BasePage {
     readonly page: Page;
@@ -8,18 +8,26 @@ export class BasePage {
     }
 
     async assertTitle(title: string) {
-        await expect(this.page).toHaveTitle(title);
+        await test.step(`Проверить заголовок страницы: ${title}`, async () => {
+            await expect(this.page).toHaveTitle(title);
+        });
     }
 
     async assertUrl(url: string) {
-        await expect(this.page).toHaveURL(url);
+        await test.step(`Проверить URL страницы: ${url}`, async () => {
+            await expect(this.page).toHaveURL(url);
+        });
     }
 
     async assertText(locator: Locator, text: string) {
-        await expect(locator).toHaveText(text);
+        await test.step(`Проверить текст элемента: ${text}`, async () => {
+            await expect(locator).toHaveText(text);
+        });
     }
 
     async assertVisible(locator: Locator) {
-        await expect(locator).toBeVisible();
+        await test.step('Проверить, что элемент отображается', async () => {
+            await expect(locator).toBeVisible();
+        });
     }
 }
