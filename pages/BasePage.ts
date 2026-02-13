@@ -1,4 +1,5 @@
-import { expect, test, type Locator, type Page } from '@playwright/test';
+import { expect, type Locator, type Page } from '@playwright/test';
+import { step } from '@decorators/allure';
 
 export class BasePage {
     readonly page: Page;
@@ -7,27 +8,23 @@ export class BasePage {
         this.page = page;
     }
 
+    @step('Проверить заголовок страницы: $')
     async assertTitle(title: string) {
-        await test.step(`Проверить заголовок страницы: ${title}`, async () => {
-            await expect(this.page).toHaveTitle(title);
-        });
+        await expect(this.page).toHaveTitle(title);
     }
 
+    @step('Проверить URL страницы: $')
     async assertUrl(url: string) {
-        await test.step(`Проверить URL страницы: ${url}`, async () => {
-            await expect(this.page).toHaveURL(url);
-        });
+        await expect(this.page).toHaveURL(url);
     }
 
+    @step('Проверить текст элемента: $1')
     async assertText(locator: Locator, text: string) {
-        await test.step(`Проверить текст элемента: ${text}`, async () => {
-            await expect(locator).toHaveText(text);
-        });
+        await expect(locator).toHaveText(text);
     }
 
+    @step('Проверить, что элемент отображается')
     async assertVisible(locator: Locator) {
-        await test.step('Проверить, что элемент отображается', async () => {
-            await expect(locator).toBeVisible();
-        });
+        await expect(locator).toBeVisible();
     }
 }

@@ -1,4 +1,5 @@
-import { test, type Locator, type Page } from '@playwright/test';
+import { type Locator, type Page } from '@playwright/test';
+import { step } from '@decorators/allure';
 import { BasePage } from './BasePage';
 
 export class QametaIoMainPage extends BasePage { 
@@ -13,27 +14,23 @@ export class QametaIoMainPage extends BasePage {
         this.sandboxButton = page.locator('#sandbox');
     }
 
+    @step('Навести курсор на пункт меню Features')
     async hoverFeaturesNavLink(){
-        await test.step('Навести курсор на пункт меню Features', async () => {
-            await this.featuresNavLink.hover();
-        });
+        await this.featuresNavLink.hover();
     }
 
+    @step('Кликнуть по пункту меню Features: $')
     async clickFeaturesNavLink(text : string){
-        await test.step(`Кликнуть по пункту меню Features: ${text}`, async () => {
-            await this.page.locator('#features_nav_desctop :text(" ' + text + '")').click();
-        });
+        await this.page.locator('#features_nav_desctop :text(" ' + text + '")').click();
     }
     
+    @step('Нажать кнопку Free Trial')
     async clickFreeTrialButton(){
-        await test.step('Нажать кнопку Free Trial', async () => {
-            await this.freeTrialButton.click();
-        });
+        await this.freeTrialButton.click();
     }
     
+    @step('Нажать кнопку Sandbox')
     async clickSandboxButton(){
-        await test.step('Нажать кнопку Sandbox', async () => {
-            await this.sandboxButton.click();
-        });
+        await this.sandboxButton.click();
     }
 }

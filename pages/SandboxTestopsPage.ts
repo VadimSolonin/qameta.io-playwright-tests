@@ -1,4 +1,5 @@
-import { test, type Locator, type Page } from '@playwright/test';
+import { type Locator, type Page } from '@playwright/test';
+import { step } from '@decorators/allure';
 import { BasePage } from './BasePage';
 
 export class SandboxTestopsPage extends BasePage { 
@@ -9,9 +10,8 @@ export class SandboxTestopsPage extends BasePage {
         this.inputEmail = page.locator('[data-testid="input__email"]');
     }
 
+    @step('Проверить, что поле Email отображается')
     public async assertEmailInputVisible(){
-        await test.step('Проверить, что поле Email отображается', async () => {
-            await this.assertVisible(this.inputEmail);
-        });
+        await this.assertVisible(this.inputEmail);
     }
 }
