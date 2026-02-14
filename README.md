@@ -6,6 +6,16 @@ Automated tests based on **Playwright** for [qameta.io](https://qameta.io/).
 - Allure reports via `allure-playwright`
 - `@step` decorator that wraps Page Object methods into `test.step(...)` 
 
+### Technologies and tools
+
+<div style="width: 50%; margin: 0 auto;">
+<a href="https://www.typescriptlang.org/"><img alt="typescript" height="50" src="data/images/typescript.svg" width="50"/></a>
+<a href="https://playwright.dev/"><img alt="playwright" height="50" src="data/images/playwright.svg" width="50"/></a>  
+<a href="https://allurereport.org/"><img alt="allure" height="50" src="data/images/allure.svg" width="50"/></a>
+<a href="https://www.docker.com/"><img alt="docker" height="50" src="data/images/docker.svg" width="50"/></a>
+<a href="https://github.com/features/actions"><img alt="github-actions" height="50" src="data/images/github-actions.svg" width="50"/></a>
+</div>
+
 ### Installation
 
 1. Clone the repository
